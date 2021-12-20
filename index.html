@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GRI | Générateur de Réflexions Inutiles</title>
+    <link rel="stylesheet" href="https://unpkg.com/papercss@1.4.0/dist/paper.min.css">
+<style>
+
+header {
+  padding: 1em;
+  background-color: #ffff80;
+  margin-top: 1em;
+  text-align: center;
+}
+
+.quote {
+  font-size: 3em;
+}
+
+.btn-large {
+    margin: 0.5em;
+  }
+
+#button:active {
+  box-shadow: 0 0 0 0;
+}
+
+.card {
+  text-align: center;
+  width: 45em;
+  background-color:white;
+  margin-top:0.5em;
+}
+
+.new-quote-button {
+  background-color: #8cff66;
+}
+
+.tweet-button {
+  background-color: #b3e0ff;
+}
+
+body {
+    background-color:#121212;
+  }
+  
+@media (max-width: 700px) {
+  header {
+    padding: 1em;
+    background-color: #ffff80;
+    margin-top: 1em;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  #newQuoteSection {
+    font-size: 35px;
+  }
+
+
+}
+
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row flex-top flex-center">
+          <header class="border shadow">
+          <h2>Générateur de Réflexions Inutiles</h2>
+          </header>
+        </div>
+
+        <div class="row flex-center">
+         <main class="card">
+          <p class="quote card-body center" id="newQuoteSection">...</p>
+         </main>
+        </div>    
+<div class="row flex-center">
+         <button id="button" class="btn-large new-quote-button" onClick="getQuote()">Une autre ?</button>
+
+        </div>		
+    </div>
+  
+
+<script>
+
+// Quotes
+
+    let quotes = ["J'ai jamais marché pieds nus dans un parking sous-terrain... Vous oui ? 🤔", "En fait le soutien-gorge, il soutient absolument pas la gorge... 🤨", "Est-ce que l'orange (le fruit) s'appelle comme ça du fait de la couleur du même nom, ou l'inverse ? 🍊 ", "Les trucs comme la Nouvelle-Calédonie, la Nouvelle-Orléans, la Nouvelle-Guinnée... ça va rester combien de temps \"nouveau\" ? 🤓" ]
+
+// Get random quote and display 
+
+function getQuote() {
+  var randomNumber = Math.floor(Math.random() * quotes.length);
+  document.getElementById('newQuoteSection').innerHTML = quotes[randomNumber];
+}
+
+// Tweet quote on click
+
+function tweetQuote() {
+  var generatedQuote = document.getElementById('newQuoteSection').innerHTML;
+  var tweetUrl = ' https://twitter.com/intent/tweet?text=' + encodeURIComponent(generatedQuote) + ' @mrjaypeasmith';
+   window.open(tweetUrl);
+}
+
+</script>
+
+</body>
+
+</html>
