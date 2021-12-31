@@ -42,10 +42,6 @@ header {
   background-color: #8cff66;
 }
 
-.tweet-button {
-  background-color: #b3e0ff;
-}
-
 body {
     background-color:#2d2d2d;
   }
@@ -79,18 +75,15 @@ body {
           <h2>Reccueil de Pensées Nocturnes</h2>
           </header>
         </div>
-
         <div class="row flex-center">
          <main class="card">
           <p class="quote card-body center" id="newQuoteSection">...</p>
          </main>
         </div>    
-<div class="row flex-center">
-         <button id="button" class="btn-large new-quote-button" onClick="getQuote()">Une autre ?</button>
-
+        <div class="row flex-center">
+          <button id="button" class="btn-large new-quote-button" onClick="getQuote()">Une autre ?</button>
         </div>		
     </div>
-  
 
 <script>
 
@@ -116,14 +109,6 @@ body {
 function getQuote() {
   var randomNumber = Math.floor(Math.random() * quotes.length);
   document.getElementById('newQuoteSection').innerHTML = quotes[randomNumber];
-}
-
-// Tweet quote on click
-
-function tweetQuote() {
-  var generatedQuote = document.getElementById('newQuoteSection').innerHTML;
-  var tweetUrl = ' https://twitter.com/intent/tweet?text=' + encodeURIComponent(generatedQuote) + ' @mrjaypeasmith';
-   window.open(tweetUrl);
 }
 
 </script>
